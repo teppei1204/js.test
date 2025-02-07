@@ -414,3 +414,83 @@
 // console.log(oldVarsions.concat(newVarsions));
 
 // concatをを使うと2つの配列を1つにまとめることができる
+
+
+// ブラウザAPIとは
+// Google Chrome, Safari, EdgeなどWebブラウザでJSを実行しWebページを操作することを可能にするAPI
+// レスポンシブデザインとは
+// PCやスマホなどデバイスの画面サイズと比率に合わせてWebページのレイアウトを最適化し表示を変える手法
+
+// documentとは
+// windowオブジェクトが持つプロパティのひとつ
+// documentオブジェクトを使うことでHTMLやCSSの操作を行うことができるので
+// HTMLやCSSだけではできないようなインタラクティブ性のある処理をWebページに加えることができる
+// DOMツリー = documentがHTMLのタグ情報を持っていること
+// querySelector()メソッド = 特定のhtml要素を取得できる
+// .innerHTML = HTMLタグ内のテキスト要素を取得したり変更できる
+// .style = HTMLタグのCSSを取得したり変更できる
+
+// これらを使ってJSからHTMLやCSSを操作できる
+// htmlファイルのidやclassセレクタと対応させ任意のHTMLタグを操作
+// HTMLファイル内で記述
+// <div id="pokemon"></div>
+// JSファイル内で記述
+// document.querySelector("#pokemon")
+// 取得したらあとはinnerTextでタグ内のテキストを操作できる
+// document.querySelector("#pokemon").innerText = "ポケモンゲットだぜ！"
+// styleでCSSを当てることができる
+// document.querySelector("#pokemon").style.backgroundColor = "#333";
+setTimeout(function(){//引数を二つ持ち第一引数に入れた関数を
+  alert("Hello");//第二引数に入れた時間後に実行する
+},5000);//5秒後にHelloが出る
+
+const timer = setTimeout(function(){
+  alert("Hello");
+},5000);
+clearTimeout(timer);//setTimeout()で設定したタイマーを解除する
+
+// HTML要素に操作を加えたい場合に使うもの。下記を使い、HTML要素を取得できる
+// 特定のHTML要素を指定した後、それに対してHTMLを操作するメソッドやプロパティが使用可能になる
+document.querySelector("#foo")//セレクタ名の値に"#"や"."を含む
+document.querySelectorAll(".bar")//セレクタ名の値に"#"や"."を含む
+// ⇧スペルの大文字・小文字＆たん崇敬・複数形が異なる⇩
+document.getElementById(foo)
+document.getElementsByClassName(bar)
+
+$foo   //$ = 変数がHTML要素を格納していることを明示するためのプレフィックス
+
+プレフィックス//クラス名や変数名の冒頭に何らかの文字列を付与すること
+// 定数は大文字
+const DOMAIN = "https://pokemon.com";
+// true/falseで状態を表す系の変数=isXXX
+const isLogin = false;
+const isActive = true;
+
+// イベントとは
+ユーザーの操作やWebページの状態の変化など何らかのきっかけによって発生するものを指す
+// windowオブジェクトに対するaddEventListenerのイベントはWebページ全体に対するイベント
+window.addEventListener("load",function(){//引数を二つもつ。(イベントのタイプ,イベント時に実行する関数)
+  this.alert("読み込み完了");
+});
+// documentオブジェクトに対するイベントはボタンや画像など個々のHTML要素に関するイベントを設定
+document.querySelector("#button").addEventListener("click", function(){
+  console.log("クリックされた");
+});
+// https://docs.google.com/spreadsheets/d/1XdhZgxTmVLBkzYfT7Ze1gh1jEPfDSUj4R2_KkDG1HIc/edit?gid=1580010861#gid=1580010861
+
+// Q.ボタンを押したら画面に"ピカチュウ"が表示されるプログラムを書いてください
+document.getElementById("button")
+.addEventListener("click",function(){
+  document.querySelector("#output")
+  .textContent = "ピカチュウ"
+});
+
+// Q.ボタンを押したら20%の確率で「ピカチュウをゲットした!」
+  // 80%の確率で「残念!もう少しで捕まえられらのに!」とダイアログで表示するプログラムを書きなさい
+document.querySelector("#button").addEventListener("click",function(){
+  if(Math.random() <= 0.2){
+    alert("ピカチュウをゲットした!");
+  } else {
+    alert("残念! もう少しで捕まえられたのに!");
+  }
+})
