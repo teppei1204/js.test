@@ -358,23 +358,59 @@
 // * this.level++;
 // this.skills.push("スパーク");
 
-const pikachu = {
-  name: "ピカチュウ",
-  level: 18,
-  types: ["でんき"],
-  skills: ["10まんボルト","でんこうせっか","たいあたり"],
-  levelUp: function(){
-    this.level++;
-    if(this.level >= 20){
-      this.skills.push("スパーク");
-      this.name = "ライチュウ";
-    }
-  }
-};
-pikachu.levelUp();
-console.log(pikachu.name);
-pikachu.levelUp();
-pikachu.levelUp();
-pikachu.levelUp();
-console.log(pikachu.name);
-console.log(pikachu.skills);
+// const pikachu = {
+//   name: "ピカチュウ",
+//   level: 18,
+//   types: ["でんき"],
+//   skills: ["10まんボルト","でんこうせっか","たいあたり"],
+//   levelUp: function(){
+//     this.level++;
+//     if(this.level >= 20){
+//       this.skills.push("スパーク");
+//       this.name = "ライチュウ";
+//     }
+//   }
+// };
+// pikachu.levelUp();
+// console.log(pikachu.name);
+// pikachu.levelUp();
+// pikachu.levelUp();
+// pikachu.levelUp();
+// console.log(pikachu.name);
+// console.log(pikachu.skills);
+
+
+// 標準組み込み関数・標準組み込みオブジェクト
+// JSの使用上初めから定義されている関数やオブジェクトがある
+
+// parseInt()    console.log(parseInt("2"))
+// 引数に文字列を渡すと数値に変換してくれる関数でfunctionなどと定義する必要がない
+
+// console    console.logの.logの部分はconsoleオブジェクトのメソッド
+
+// Math    数学的な計算を行うためのプロパティやメソッドを持っている
+// Math.random()は0.0~1.0のランダムな値を返すメソッド
+
+// PI    円周率を求めるプロパティ
+
+// ceil()    引数に少数を渡すと小数点以下を切り上げる
+// などなど...。他はチートシート参照
+// https://docs.google.com/spreadsheets/d/1XdhZgxTmVLBkzYfT7Ze1gh1jEPfDSUj4R2_KkDG1HIc/edit?gid=0#gid=0
+
+
+// Q."サンダー","ホウオウ","スイクン","ラティアス","パルキア"を持つ配列myPokemonsを作成しなさい
+// const myPokemons = ["サンダー","ホウオウ","スイクン","ラティアス","パルキア"];
+
+// Q.myPokemonsに新しい値"ミュウツー"を追加しなさい
+// myPokemons.push("ミュウツー")
+// console.log(myPokemons);
+
+// Q.myPokemonsが持つ値が今いくつあるか出力しなさい
+// console.log(myPokemons.length);
+
+// Q.oldVarsionsとnewVarsionsを一つの配列にまとめなさい
+// const oldVarsions = ["赤","青","緑"];
+// const newVarsions = ["ルビー","サファイア","エメラルド"];
+// console.log(oldVarsions.concat(newVarsions));
+
+// concatをを使うと2つの配列を1つにまとめることができる
