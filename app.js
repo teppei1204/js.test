@@ -240,11 +240,141 @@
 // ヒント: if文を使う。Math.random()を使う。
 // Math.random() = 確立系のプログラムを書くときによく使う
 
-function hornDrill (theirHp) {
-  if(Math,random() <= 0.3){
-    return theirHp;
-  } else {
-    return 0;
+// function hornDrill (theirHp) {
+//   if(Math,random() <= 0.3){
+//     return theirHp;
+//   } else {
+//     return 0;
+//   }
+// }
+// console.log(hornDrill(100));
+
+// オブジェクトとは
+// データをまとめて管理するための箱のようなもの
+// この箱にはさまざまな値や機能を詰め込むことができる
+
+// const オブジェクト名 = {
+//   プロパティ名: 値       //{プロパティ名: 値}と記述する
+// };
+// 1つのオブジェクトにはプロパティと値を複数持つことができる
+// const snsUser = {
+//   id: 1,
+//   userName: "Taro",
+//   gender: "male",
+  //オブジェクトは関数(オブジェクト内ではメソッドと呼ぶ)を持つこともできる
+  // like: function(){
+  //   //ここに処理を書く
+  // },
+  // post: function(){
+    //ここに処理を書く
+//   }
+// }
+//プロパティを参照したりメソッドを実行することができる
+// オブジェクトのプロパティを参照するにはオブジェクト名の後に.(ドット)をつけプロパティ名を記述
+// console.log(snsUser.id);
+
+// 配列、真偽値、null、underfinedといった値を使うことができる
+// const snsUser = {
+//   id: 1,
+//   userName: "Taro",
+//   like: function () { },
+//   post: function () { },
+//   followers: ["Yamada","Suzuki","Tanaka"],//配列
+//   following: ["Yamada","Suzuki"],
+//   premium: true,//真偽値
+//   darkMode: false,
+//   posts: null,//nullで定義
+// }
+// オブジェクトの配列を参照するには通常の配列のように[]+数字を使う
+// console.log(snsUser.followers[1]);
+
+// オブジェクトの中にオブジェクトを入れることもできる
+// const snsUser = {
+//   id: 1,
+//   userName: "Taro",
+//   like: function () { },
+//   post: function () { },
+//   followers: ["Yamada","Suzuki","Tanaka"],
+//   following: ["Yamada","Suzuki"],
+//   posts: null,
+//   settings: {
+//     premium: true,
+//     darkMode: false,
+//   },
+//   actions: {
+//     like: () => { },
+//     post: () => { },
+//   }
+// }
+//上記の解説。
+// settingsというプロパティの値にオブジェクトを作り
+// ユーザー側で設定変更が可能であろうpremium,darkModeプロパティをまとめた
+// actionsというプロパティの値にオブジェクトを作りメソッドをまとめた
+// 呼び出しは、入れ子の数だけ.(ドット)を繋げる
+// console.log(snsUser.settings.darkMode);
+
+// thisとは
+// オブジェクトの中でそのオブジェクト自体を参照したいシーンがある
+// const snsUser = {
+//   id: 1,
+//   userName: "Taro",
+//   post: function(contents) {
+//     return contents + "を投稿しました by ...";
+                    //ここでthisを使う
+  // }
+// };
+// SNSで投稿したらその記事に投稿者の名前が含まれる仕様
+// 実行したら自分のオブジェクトのuserNameを参照してメソッドに含めたい
+// const snsUser = {
+//   id: 1,
+//   userName: "Taro",
+//   post: function(contents) {
+//     return contents + "を投稿しました by " + this.userName;
+//   }
+// };
+// console.log(snsUser.post("プログラミングなう"));
+// thisは利用シーンによって参照するものが変わる奥が深い仕様
+// オブジェクト内で使ったらそのオブジェクト自体を参照する
+// ※メソッドを定義する際はアロー関数ではなくfunctionで定義した関数を使う
+
+
+// Q.ピカチュウのオブジェクトを作りなさい。含めるべきプロパティは下記。
+// name (文字列 -> "ピカチュウ")
+// level (数字 -> 18)
+// types (文字列の配列 -0> でんき)
+// skills (文字列の配列 -> 10まんボルト、でんこうせっか、たいあたり)
+
+// const pikachu = {
+//   name: "ピカチュウ",
+//   level: 18,
+//   types: ["でんき"],
+//   skills: ["10まんボルト","でんこうせっか","たいあたり"]
+// };
+
+// Q.ピカチュウのオブジェクトに下記の仕様を満たすメソッド"levelUp"を追加しなさい
+// 実行するとlevelが1増える
+// levelが20以上でskillsに"スパーク"が追加される
+// Hints: 下記のコードを使います
+// * this.level++;
+// this.skills.push("スパーク");
+
+const pikachu = {
+  name: "ピカチュウ",
+  level: 18,
+  types: ["でんき"],
+  skills: ["10まんボルト","でんこうせっか","たいあたり"],
+  levelUp: function(){
+    this.level++;
+    if(this.level >= 20){
+      this.skills.push("スパーク");
+      this.name = "ライチュウ";
+    }
   }
-}
-console.log(hornDrill(100));
+};
+pikachu.levelUp();
+console.log(pikachu.name);
+pikachu.levelUp();
+pikachu.levelUp();
+pikachu.levelUp();
+console.log(pikachu.name);
+console.log(pikachu.skills);
